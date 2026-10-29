@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <section>
+    <h2>Archive tabs I haven't viewed in</h2>
+    <select id="afterHours">
+      <option value="12">12 hours</option>
+      <option value="24">24 hours</option>
+      <option value="168">7 days</option>
+      <option value="720">30 days</option>
+      <option value="0">Never</option>
+    </select>
+    <p class="hint">Pinned tabs and the tab you're looking at are never archived. Time counts while Firefox is closed, as in Arc.</p>
+  </section>
+  <section>
+    <h2>Also keep</h2>
+    <label><input type="checkbox" id="keepGrouped"> Tabs in tab groups</label>
+    <label><input type="checkbox" id="keepAudible"> Tabs playing audio</label>
+  </section>
+  <section>
+    <h2>Never archive these sites</h2>
+    <textarea id="excludedSites" rows="5" placeholder="mail.google.com&#10;calendar.google.com"></textarea>
+    <p class="hint">One domain per line; subdomains are included.</p>
+  </section>
+  <section>
+    <button id="sweepNow">Archive stale tabs now</button>
+  </section>
+  <script src="options.js"></script>
+</body>
+</html>

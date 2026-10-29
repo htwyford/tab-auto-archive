@@ -1,0 +1,37 @@
+:root {
+  color-scheme: light dark;
+  font: 13px/1.35 system-ui, sans-serif;
+  --muted: color-mix(in srgb, currentColor 55%, transparent);
+  --line: color-mix(in srgb, currentColor 12%, transparent);
+  --hover: color-mix(in srgb, currentColor 8%, transparent);
+}
+body { margin: 0; width: 380px; }
+header, footer { display: flex; gap: 8px; align-items: center; padding: 10px; }
+header { border-bottom: 1px solid var(--line); }
+footer { border-top: 1px solid var(--line); }
+#search { flex: 1; font: inherit; padding: 5px 8px; }
+#status { flex: 1; color: var(--muted); }
+ul { list-style: none; margin: 0; padding: 4px 0; max-height: 420px; overflow-y: auto; }
+h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 8px 12px 2px;
+}
+li.entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+li.entry:hover { background: var(--hover); }
+li.entry img, li.entry .noicon { width: 16px; height: 16px; flex: none; }
+li.entry .text { flex: 1; min-width: 0; }
+li.entry .title, li.entry .url { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+li.entry .url { color: var(--muted); font-size: 11px; }
+li.entry .remove { visibility: hidden; border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 15px; }
+li.entry:hover .remove { visibility: visible; }
+#empty { color: var(--muted); text-align: center; padding: 24px; margin: 0; }
+button.link { border: 0; background: none; color: LinkText; cursor: pointer; padding: 0; font: inherit; }

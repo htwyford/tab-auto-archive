@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <input id="search" type="search" placeholder="Search archived tabs" autofocus>
+    <button id="archiveCurrent" title="Archive the current tab">Archive tab</button>
+  </header>
+  <ul id="list"></ul>
+  <p id="empty" hidden>Nothing archived yet.</p>
+  <footer>
+    <span id="status"></span>
+    <button id="settings" class="link">Settings</button>
+    <button id="clear" class="link">Clear archive</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Auto-Archive",
+  "version": "1.0.0",
+  "description": "Arc-style auto-archive: unpinned tabs you haven't looked at in a while are closed and kept in a searchable archive you can restore from.",
+  "author": "Harry Twyford",
+  "homepage_url": "https://github.com/htwyford/tab-auto-archive",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "permissions": ["tabs", "storage", "alarms"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "Archived tabs",
+    "default_popup": "popup/popup.html",
+    "default_icon": "icons/icon.svg"
+  },
+  "options_ui": {
+    "page": "options/options.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tab-auto-archive@harrytwyford.com",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}
