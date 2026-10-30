@@ -1,0 +1,25 @@
+{
+  "slug": "tab-auto-archive",
+  "summary": {
+    "en-US": "Tabs you haven't looked at in 12 hours close themselves. You can configure the time limit in the extension's settings."
+  },
+  "description": {
+    "en-US": "Tabs you haven't looked at in 12 hours close themselves. You can configure the time limit in the extension's settings: 12 hours, 24 hours, 7 days, 30 days or never.\n\nPinned tabs and the tab you're looking at in each window are never closed. By default, tabs in tab groups and tabs playing audio aren't closed either. You can also list sites whose tabs should never be closed.\n\nThe time limit includes time when Firefox is closed.\n\nSource: https://github.com/htwyford/tab-auto-archive"
+  },
+  "categories": {
+    "firefox": [
+      "tabs"
+    ]
+  },
+  "homepage": {
+    "en-US": "https://github.com/htwyford/tab-auto-archive"
+  },
+  "requires_payment": false,
+  "version": {
+    "license": "GPL-3.0-only",
+    "release_notes": {
+      "en-US": "First release on addons.mozilla.org."
+    },
+    "approval_notes": "alarms: runs a check every 15 minutes. tabs: reads lastAccessed, pinned, audible and groupId, and closes stale tabs with tabs.remove. storage: settings only. No network requests, no remote code, no data collection. The source is unminified and identical to https://github.com/htwyford/tab-auto-archive."
+  }
+}

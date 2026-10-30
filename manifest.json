@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Tab Auto-Archive",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Arc-style auto-archive: unpinned tabs you haven't looked at in a while are closed automatically. Find them again in History.",
   "author": "Harry Twyford",
   "homepage_url": "https://github.com/htwyford/tab-auto-archive",
   "icons": {
-    "48": "icons/icon.svg",
-    "96": "icons/icon.svg"
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
   },
   "permissions": [
     "tabs",
