@@ -1,8 +1,8 @@
-# Tab Auto-Archive
+# Auto-Close Old Tabs
 
-Arc-style auto-archive for Firefox. Unpinned tabs you haven't viewed for a while are closed automatically, so your tab bar stays short.
+Like Arc's auto-archive, for Firefox. Unpinned tabs you haven't viewed for a while are closed automatically, so your tab bar stays short.
 
-## What gets archived
+## What gets closed
 
 Tabs you haven't viewed in **12 hours** by default (24 hours, 7 days, 30 days or never in settings), except:
 
@@ -17,7 +17,7 @@ As in Arc, time keeps counting while Firefox is closed.
 
 ## Getting a tab back
 
-Archived tabs are closed normally, so Firefox's own tools find them: **History** (Cmd-Y) to search everything, or **History → Recently Closed Tabs** for the latest ones. The extension doesn't keep a list of its own.
+Tabs are closed normally, so Firefox's own tools find them: **History** (Cmd-Y) to search everything, or **History → Recently Closed Tabs** for the latest ones. The extension doesn't keep a list of its own.
 
 ## Development
 

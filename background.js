@@ -1,11 +1,11 @@
 "use strict";
 
-// Tab Auto-Archive
+// Auto-Close Old Tabs
 //
 // storage.local: settings { afterHours: number (0 = never), keepGrouped: bool,
 //                           keepAudible: bool, excludedSites: string[] }
 //
-// Archived tabs are simply closed; Firefox's History and Recently Closed Tabs
+// Tabs are simply closed; Firefox's History and Recently Closed Tabs
 // are where you find them again.
 
 const DEFAULTS = { afterHours: 12, keepGrouped: true, keepAudible: true, excludedSites: [] };

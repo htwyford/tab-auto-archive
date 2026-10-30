@@ -6,7 +6,7 @@
 </head>
 <body>
   <section>
-    <h2>Archive tabs I haven't viewed in</h2>
+    <h2>Close tabs I haven't viewed in</h2>
     <select id="afterHours">
       <option value="12">12 hours</option>
       <option value="24">24 hours</option>
@@ -14,7 +14,7 @@
       <option value="720">30 days</option>
       <option value="0">Never</option>
     </select>
-    <p class="hint">Archived tabs are closed. Find them again in History (Cmd-Y) or History → Recently Closed Tabs. Pinned tabs and the tab you're looking at are never archived. Time counts while Firefox is closed, as in Arc.</p>
+    <p class="hint">Find closed tabs again in History (Cmd-Y) or History → Recently Closed Tabs. Pinned tabs and the tab you're looking at are never closed. Time counts while Firefox is closed, as in Arc.</p>
   </section>
   <section>
     <h2>Also keep</h2>
@@ -22,12 +22,12 @@
     <label><input type="checkbox" id="keepAudible"> Tabs playing audio</label>
   </section>
   <section>
-    <h2>Never archive these sites</h2>
+    <h2>Never close tabs from these sites</h2>
     <textarea id="excludedSites" rows="5" placeholder="mail.google.com&#10;calendar.google.com"></textarea>
     <p class="hint">One domain per line; subdomains are included.</p>
   </section>
   <section>
-    <button id="sweepNow">Archive stale tabs now</button>
+    <button id="sweepNow">Close old tabs now</button>
   </section>
   <script src="options.js"></script>
 </body>

@@ -1,5 +1,5 @@
 {
-  "slug": "tab-auto-archive",
+  "slug": "auto-close-old-tabs",
   "summary": {
     "en-US": "Tabs you haven't looked at in 12 hours close themselves. You can configure the time limit in the extension's settings."
   },
