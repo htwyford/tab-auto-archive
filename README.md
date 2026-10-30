@@ -1,6 +1,6 @@
 # Tab Auto-Archive
 
-Arc-style auto-archive for Firefox. Unpinned tabs you haven't viewed for a while are closed and saved to an archive. Click the toolbar button to search the archive and restore tabs.
+Arc-style auto-archive for Firefox. Unpinned tabs you haven't viewed for a while are closed automatically, so your tab bar stays short.
 
 ## What gets archived
 
@@ -15,9 +15,9 @@ Tabs you haven't viewed in **12 hours** by default (24 hours, 7 days, 30 days or
 
 As in Arc, time keeps counting while Firefox is closed.
 
-## The archive
+## Getting a tab back
 
-Click the toolbar button to see archived tabs grouped by day. Search by title or URL, and click an entry to reopen it (Cmd/Ctrl-click opens it in the background). *Archive tab* archives the current tab right away. The archive holds your latest 1,000 tabs and stays on your machine.
+Archived tabs are closed normally, so Firefox's own tools find them: **History** (Cmd-Y) to search everything, or **History → Recently Closed Tabs** for the latest ones. The extension doesn't keep a list of its own.
 
 ## Development
 

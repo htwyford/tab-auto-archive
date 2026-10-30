@@ -4,13 +4,13 @@
 //
 // storage.local: settings { afterHours: number (0 = never), keepGrouped: bool,
 //                           keepAudible: bool, excludedSites: string[] }
-//                archive  [{ url, title, favIconUrl, archivedAt }] newest first
+//
+// Archived tabs are simply closed; Firefox's History and Recently Closed Tabs
+// are where you find them again.
 
 const DEFAULTS = { afterHours: 12, keepGrouped: true, keepAudible: true, excludedSites: [] };
 const ALARM = "sweep";
 const SWEEP_MINUTES = 15;
-const ARCHIVE_LIMIT = 1000;
-const BLANK_URLS = new Set(["about:blank", "about:newtab", "about:home", "about:privatebrowsing"]);
 
 async function getSettings() {
   const { settings = {} } = await browser.storage.local.get("settings");
@@ -27,28 +27,6 @@ function isExcluded(url, excludedSites) {
   return excludedSites.some((s) => host === s || host.endsWith("." + s));
 }
 
-async function addToArchive(tabs) {
-  const entries = tabs
-    .filter((t) => !BLANK_URLS.has(t.url))
-    .map((t) => ({
-      url: t.url,
-      title: t.title || t.url,
-      // data: favicons can be large; skip them rather than bloat storage.
-      favIconUrl: t.favIconUrl?.startsWith("data:") ? null : t.favIconUrl ?? null,
-      archivedAt: Date.now(),
-    }));
-  if (!entries.length) return;
-  const { archive = [] } = await browser.storage.local.get("archive");
-  const urls = new Set(entries.map((e) => e.url));
-  const next = [...entries, ...archive.filter((e) => !urls.has(e.url))].slice(0, ARCHIVE_LIMIT);
-  await browser.storage.local.set({ archive: next });
-}
-
-async function archiveTabs(tabs) {
-  if (!tabs.length) return;
-  await addToArchive(tabs);
-  await browser.tabs.remove(tabs.map((t) => t.id));
-}
 
 async function sweep() {
   const s = await getSettings();
@@ -76,7 +54,7 @@ async function sweep() {
     stale.push(...candidates);
   }
 
-  await archiveTabs(stale);
+  if (stale.length) await browser.tabs.remove(stale.map((t) => t.id));
 }
 
 async function ensureAlarm() {
@@ -90,15 +68,14 @@ browser.alarms.onAlarm.addListener((alarm) => {
 });
 
 browser.runtime.onStartup.addListener(ensureAlarm);
-browser.runtime.onInstalled.addListener(ensureAlarm);
+browser.runtime.onInstalled.addListener(() => {
+  ensureAlarm();
+  // 1.0 kept its own list of archived tabs for the toolbar popup.
+  browser.storage.local.remove("archive");
+});
 
 browser.runtime.onMessage.addListener((msg) => {
-  switch (msg?.type) {
-    case "archive-tab":
-      return browser.tabs.get(msg.tabId).then((tab) => archiveTabs([tab]));
-    case "sweep-now":
-      return sweep();
-  }
+  if (msg?.type === "sweep-now") return sweep();
 });
 
 ensureAlarm();
